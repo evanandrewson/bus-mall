@@ -14,13 +14,9 @@ const renderProduct = function(index) {
     image.classList.add('button-image');
     image.id = product.id;
     button.appendChild(image);
-
-    /*
-    currently working on this code
     button.addEventListener('click', () => {
         
     });
-    */
 
     return button;
 };

@@ -2,6 +2,12 @@ import products from './data/products.js';
 import renderProduct from './render-product.js';
 
 const imageDiv = document.getElementById('images');
+const product1name = document.getElementById('product-1-name');
+const product2name = document.getElementById('product-2-name');
+const product3name = document.getElementById('product-3-name');
+const product1image = document.getElementById('product-1-image');
+const product2image = document.getElementById('product-2-image');
+const product3image = document.getElementById('product-3-image');
 
 const randomArrayGenerator = function(max) {
     let number1 = Math.floor(Math.random() * max);
@@ -16,10 +22,4 @@ const randomArrayGenerator = function(max) {
     return [number1, number2, number3];
 };
 
-const randomArray = randomArrayGenerator(20);
-
-for(let i = 0; i < 3; i++) {
-    let product = renderProduct(randomArray[i]);
-    imageDiv.appendChild(product);
-    products[randomArray[i]].appearanceCount++;
-}
+const randomArray = randomArrayGenerator(products.length);
