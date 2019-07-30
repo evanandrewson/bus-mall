@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+header {
+    height:5rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    padding: .5rem;
+}
+
+

@@ -1,0 +1,18 @@
+main {
+    text-align: center;
+    margin: auto;
+}
+
+button {
+    width: 30%;
+    padding: 1rem;
+}
+
+button:hover {
+    border: 5px solid black;
+}
+
+.button-image {
+    object-fit: cover;
+    width: 100%;
+}
