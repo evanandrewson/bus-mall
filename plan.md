@@ -2,7 +2,7 @@
 2. Make hard-coded HTML.
 3. Add CSS.
 4. Make a product array with id, image, and name
-5. TDD a function to get an item from the array based on a number.
+5. TDD a function to get an item from the array based on a number. -- realized this is unnecessary
 6. Make a render function to display items from the array.
 7. Make sure the render function includes button functionality that:
     a. tracks the clicks for that product
