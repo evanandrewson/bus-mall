@@ -1,3 +1,6 @@
+import products from './data/products.js';
+
+
 class ProductSet {
     constructor(products) {
         this.list = products.slice();
@@ -32,6 +35,20 @@ class ProductSet {
                 selectedCount: 0
             };
             dataArray.list.push(lineItem);
+        }
+    }
+    addToNameArray(dataArray, id) {
+        const productList = new ProductSet(products);
+        let product = productList.findById(id);
+        let lineItem = dataArray.findById(id);
+        if(!lineItem) {
+            lineItem = { 
+                name: product.name,
+                id: id
+            };
+            dataArray.list.push(lineItem);
+        } else {
+            return;
         }
     }
     incrementSelectedCount(dataArray, id) {

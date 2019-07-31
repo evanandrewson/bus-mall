@@ -18,6 +18,7 @@ const selectionContainer = document.getElementById('selection-container');
 let productListToSplice = new ProductSet(products);
 let count = 1;
 let resultsArray = new ProductSet([]);
+let nameArray = new ProductSet([]);
 let product1, product2, product3;
 
 displayProducts();
@@ -87,6 +88,9 @@ function displayProducts() {
     resultsArray.addToResultsArray(resultsArray, product1.id);
     resultsArray.addToResultsArray(resultsArray, product2.id);
     resultsArray.addToResultsArray(resultsArray, product3.id);
+    nameArray.addToNameArray(nameArray, product1.id);
+    nameArray.addToNameArray(nameArray, product2.id);
+    nameArray.addToNameArray(nameArray, product3.id);
 
     productListToSplice.removeById(product1.id);
     productListToSplice.removeById(product2.id);
@@ -98,7 +102,7 @@ function displayResults() {
     selectionContainer.classList.add('hidden');
 
     for(let i = 0; i < resultsArray.list.length; i++) {
-        const lineItem = renderResults(resultsArray.list[i]);
+        const lineItem = renderResults(resultsArray.list[i], nameArray.list[i]);
         results.appendChild(lineItem);
     }
 }

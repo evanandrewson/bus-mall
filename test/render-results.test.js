@@ -11,11 +11,14 @@ test('Renders one entry of results', assert => {
         appearanceCount: 3,
         selectedCount: 2
     };
-    const expected = '<p>You selected banana-slicer 2 times out of 3 appearances, 67% of the time.</p>';
+    const nameArrayItem= {
+        name: 'Banana Slicer'
+    };
+    const expected = '<p>You selected Banana Slicer 2 times out of 3 appearances, 67% of the time.</p>';
 
     // act
 
-    const result = renderResults(arrayItem).outerHTML;
+    const result = renderResults(arrayItem, nameArrayItem).outerHTML;
     
     // assert
     assert.equal(result, expected);
