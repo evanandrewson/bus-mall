@@ -28,10 +28,15 @@ class ProductSet {
         } else {
             lineItem = {
                 id: id,
-                appearanceCount: 1
+                appearanceCount: 1,
+                selectedCount: 0
             };
             dataArray.list.push(lineItem);
         }
+    }
+    incrementSelectedCount(dataArray, id) {
+        let lineItem = dataArray.findById(id);
+        lineItem.selectedCount++;
     }
 }
 

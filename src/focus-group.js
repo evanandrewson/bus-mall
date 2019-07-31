@@ -20,18 +20,22 @@ let product1, product2, product3;
 displayProducts();
 
 button1.addEventListener('click', () => {
+    resultsArray.incrementSelectedCount(resultsArray, button1.value);
     displayProducts();
     incrementCounter();
+    console.log(resultsArray);
 });
 
 button2.addEventListener('click', () => {
     displayProducts();
     incrementCounter();
+    resultsArray.incrementSelectedCount(resultsArray, button2.value);
 });
 
 button3.addEventListener('click', () => {
     displayProducts();
     incrementCounter();
+    resultsArray.incrementSelectedCount(resultsArray, button3.value);
 });
 
 function randomArrayGenerator(max) {
