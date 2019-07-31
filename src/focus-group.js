@@ -20,6 +20,10 @@ let count = 1;
 let resultsArray = new ProductSet([]);
 let nameArray = new ProductSet([]);
 let product1, product2, product3;
+export const labels = [];
+export const clicksData = [];
+export const appearedData = [];
+export const percentageData = [];
 
 displayProducts();
 
@@ -105,4 +109,25 @@ function displayResults() {
         const lineItem = renderResults(resultsArray.list[i], nameArray.list[i]);
         results.appendChild(lineItem);
     }
+    
+    for(let i = 0; i < nameArray.list.length; i++) {
+        const label = nameArray.list[i].name;
+        labels.push(label);
+    }
+    
+    for(let i = 0; i < resultsArray.list.length; i++) {
+        const data = resultsArray.list[i].selectedCount;
+        clicksData.push(data);
+    }
+
+    for(let i = 0; i < resultsArray.list.length; i++) {
+        const data = resultsArray.list[i].appearanceCount;
+        appearedData.push(data);
+    }
+
+    for(let i = 0; i < resultsArray.list.length; i++) {
+        const data = Math.round(resultsArray.list[i].selectedCount / resultsArray.list[i].appearanceCount * 100);
+        percentageData.push(data);
+    }
+    
 }

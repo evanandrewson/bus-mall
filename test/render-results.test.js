@@ -11,7 +11,7 @@ test('Renders one entry of results', assert => {
         appearanceCount: 3,
         selectedCount: 2
     };
-    const nameArrayItem= {
+    const nameArrayItem = {
         name: 'Banana Slicer'
     };
     const expected = '<p>You selected Banana Slicer 2 times out of 3 appearances, 67% of the time.</p>';
