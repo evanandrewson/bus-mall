@@ -14,12 +14,10 @@ const counter = document.getElementById('counter');
 
 let productListToSplice = new ProductSet(products);
 let count = 1;
-let resultsArray = [];
+let resultsArray = new ProductSet([]);
 let product1, product2, product3;
 
 displayProducts();
-//updateResultsArray//
-
 
 button1.addEventListener('click', () => {
     displayProducts();
@@ -68,7 +66,13 @@ function displayProducts() {
     button1.value = product1.id;
     button2.value = product2.id;
     button3.value = product3.id;
+
     productListToSplice = new ProductSet(products);
+
+    resultsArray.addToResultsArray(resultsArray, product1.id);
+    resultsArray.addToResultsArray(resultsArray, product2.id);
+    resultsArray.addToResultsArray(resultsArray, product3.id);
+
     productListToSplice.removeById(product1.id);
     productListToSplice.removeById(product2.id);
     productListToSplice.removeById(product3.id);

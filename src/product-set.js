@@ -21,6 +21,18 @@ class ProductSet {
             }
         }
     }
+    addToResultsArray(dataArray, id) {
+        let lineItem = dataArray.findById(id);
+        if(lineItem) {
+            lineItem.appearanceCount++;
+        } else {
+            lineItem = {
+                id: id,
+                appearanceCount: 1
+            };
+            dataArray.list.push(lineItem);
+        }
+    }
 }
 
 export default ProductSet;
