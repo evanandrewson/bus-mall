@@ -14,26 +14,12 @@ const counter = document.getElementById('counter');
 
 let productListToSplice = new ProductSet(products);
 let count = 1;
+let resultsArray = [];
+let product1, product2, product3;
 
-const randomArrayGenerator = function(max) {
-    let number1 = Math.floor(Math.random() * max);
-    let number2 = Math.floor(Math.random() * max);
-    let number3 = Math.floor(Math.random() * max);
-    while(number1 === number2) {
-        number2 = Math.floor(Math.random() * max);
-    }
-    while(number1 === number3 || number2 === number3) {
-        number3 = Math.floor(Math.random() * max);
-    }
-    return [number1, number2, number3];
-};
+displayProducts();
+//updateResultsArray//
 
-const randomArray = randomArrayGenerator(products.length);
-let product1 = products[randomArray[0]];
-let product2 = products[randomArray[1]];
-let product3 = products[randomArray[2]];
-
-displayInit();
 
 button1.addEventListener('click', () => {
     displayProducts();
@@ -50,16 +36,29 @@ button3.addEventListener('click', () => {
     incrementCounter();
 });
 
+function randomArrayGenerator(max) {
+    let number1 = Math.floor(Math.random() * max);
+    let number2 = Math.floor(Math.random() * max);
+    let number3 = Math.floor(Math.random() * max);
+    while(number1 === number2) {
+        number2 = Math.floor(Math.random() * max);
+    }
+    while(number1 === number3 || number2 === number3) {
+        number3 = Math.floor(Math.random() * max);
+    }
+    return [number1, number2, number3];
+}
+
 function incrementCounter() {
     count++;
     counter.textContent = count + '/25';
 }
 
 function displayProducts() {
-    const randomArray2 = randomArrayGenerator(productListToSplice.list.length);
-    product1 = productListToSplice.list[randomArray2[0]];
-    product2 = productListToSplice.list[randomArray2[1]];
-    product3 = productListToSplice.list[randomArray2[2]];
+    const randomArray = randomArrayGenerator(productListToSplice.list.length);
+    product1 = productListToSplice.list[randomArray[0]];
+    product2 = productListToSplice.list[randomArray[1]];
+    product3 = productListToSplice.list[randomArray[2]];
     product1name.textContent = product1.name;
     product2name.textContent = product2.name;
     product3name.textContent = product3.name;
@@ -70,21 +69,6 @@ function displayProducts() {
     button2.value = product2.id;
     button3.value = product3.id;
     productListToSplice = new ProductSet(products);
-    productListToSplice.removeById(product1.id);
-    productListToSplice.removeById(product2.id);
-    productListToSplice.removeById(product3.id);
-}
-
-function displayInit() {
-    product1name.textContent = product1.name;
-    product2name.textContent = product2.name;
-    product3name.textContent = product3.name;
-    product1image.src = product1.image;
-    product2image.src = product2.image;
-    product3image.src = product3.image;
-    button1.value = product1.id;
-    button2.value = product2.id;
-    button3.value = product3.id;
     productListToSplice.removeById(product1.id);
     productListToSplice.removeById(product2.id);
     productListToSplice.removeById(product3.id);

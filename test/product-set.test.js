@@ -16,3 +16,15 @@ test('remove by ID', assert => {
     // assert
     assert.notOk(productSet.list.includes(productToRemove));
 });
+
+test('find by ID', assert => {
+    // arrange
+    const productSet = new ProductSet(products);
+    const productToFind = products[0]; 
+
+    // act
+    const foundProduct = productSet.findById(productToFind.id);
+    
+    // assert
+    assert.equal(foundProduct, productToFind);
+});

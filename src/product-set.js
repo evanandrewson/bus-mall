@@ -12,6 +12,15 @@ class ProductSet {
             }
         }
     }
+    findById(productId) {
+        const list = this.list;
+        for(let i = 0; i < list.length; i++) {
+            const product = list[i];
+            if(product.id === productId) {
+                return product;
+            }
+        }
+    }
 }
 
 export default ProductSet;
