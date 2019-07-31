@@ -10,4 +10,6 @@ header {
     padding: .5rem;
 }
 
-
+.hidden {
+    display: none;
+}

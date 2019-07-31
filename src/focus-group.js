@@ -1,5 +1,6 @@
 import products from './data/products.js'; 
 import ProductSet from './product-set.js';
+import renderResults from './render-results.js';
 
 const product1name = document.getElementById('product-1-name');
 const product2name = document.getElementById('product-2-name');
@@ -11,6 +12,8 @@ const button1 = document.getElementById('button-1');
 const button2 = document.getElementById('button-2');
 const button3 = document.getElementById('button-3');
 const counter = document.getElementById('counter');
+const results = document.getElementById('results');
+const selectionContainer = document.getElementById('selection-container');
 
 let productListToSplice = new ProductSet(products);
 let count = 1;
@@ -23,19 +26,27 @@ button1.addEventListener('click', () => {
     resultsArray.incrementSelectedCount(resultsArray, button1.value);
     displayProducts();
     incrementCounter();
-    console.log(resultsArray);
+    if(count > 25) {
+        displayResults();
+    }
 });
 
 button2.addEventListener('click', () => {
+    resultsArray.incrementSelectedCount(resultsArray, button2.value);
     displayProducts();
     incrementCounter();
-    resultsArray.incrementSelectedCount(resultsArray, button2.value);
+    if(count > 25) {
+        displayResults();
+    }
 });
 
 button3.addEventListener('click', () => {
+    resultsArray.incrementSelectedCount(resultsArray, button3.value);
     displayProducts();
     incrementCounter();
-    resultsArray.incrementSelectedCount(resultsArray, button3.value);
+    if(count > 25) {
+        displayResults();
+    }
 });
 
 function randomArrayGenerator(max) {
@@ -80,4 +91,14 @@ function displayProducts() {
     productListToSplice.removeById(product1.id);
     productListToSplice.removeById(product2.id);
     productListToSplice.removeById(product3.id);
+}
+
+function displayResults() {
+    results.classList.remove('hidden');
+    selectionContainer.classList.add('hidden');
+
+    for(let i = 0; i < resultsArray.list.length; i++) {
+        const lineItem = renderResults(resultsArray.list[i]);
+        results.appendChild(lineItem);
+    }
 }
