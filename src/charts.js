@@ -60,7 +60,7 @@ const percentageChart = new Chart(percentageCtx, {
             {
                 label: '% time selected when appeared',
                 data: percentageData,
-                backgroundColor: ['black']
+                backgroundColor: 'black'
             },
         ]
     },
