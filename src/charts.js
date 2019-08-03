@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { labels, clicksData, appearedData, percentageData } from './focus-group.js';
 
 const clicksCtx = document.getElementById('clicks-chart').getContext('2d');
